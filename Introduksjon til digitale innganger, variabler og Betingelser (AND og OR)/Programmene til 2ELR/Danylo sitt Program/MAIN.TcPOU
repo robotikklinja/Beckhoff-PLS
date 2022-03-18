@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{660d75b5-e4f8-4f76-9869-6a44375fb7ee}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	diKapasitivSensor1 AT %I* : BOOL ;
+	diKapasitivSensor2 AT %I* : BOOL ;
+	bSensorMinne1 : BOOL 	:= 0;
+	bSensorMinne2 : BOOL 	:= 0;
+	andSensorMinne1 : BOOL 	:= 0;
+	orSensorMinne2: BOOL 	:= 0;
+	xorSensorMinne3: BOOL	:= 0;
+	notandSensorMinne4: BOOL:= 0;
+	notorSensorMinne5: BOOL	:= 0;
+	notxorSensorMinne6: BOOL:= 0;
+END_VAR
+
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bSensorMinne1 := diKapasitivSensor1 ;
+bSensorMinne2 := diKapasitivSensor2 ;
+
+andSensorMinne1 := diKapasitivSensor1 AND diKapasitivSensor2;
+orSensorMinne2  := diKapasitivSensor1 OR diKapasitivSensor2 ;
+xorSensorMinne3 := diKapasitivSensor1 XOR diKapasitivSensor2;
+notandSensorMinne4 := NOT 	andSensorMinne1					;
+notorSensorMinne5  := NOT 	orSensorMinne2 					;
+notxorSensorMinne6 := NOT	xorSensorMinne3					;]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="39" Count="5" />
+      <LineId Id="38" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
