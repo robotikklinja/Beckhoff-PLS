@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{005923ac-e2af-47ea-bfe7-5f89119167ca}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	diKapasativSensor1 AT %I* : BOOL ;
+	diKapasativSensor2 AT %I* : BOOL ;
+	diKapasativSensor3 AT %I* : BOOL ;
+	diKapasativSensor4 AT %I* : BOOL ;
+	
+	bMinneKapasativ1 : BOOL := 0 ;
+	bMinneKapasativ2 : BOOL := 0 ;
+	bMinneKapasativ3 : BOOL := 0 ;
+	bMinneKapasativ4 : BOOL := 0 ;
+	
+	Var_1 : BOOL := 0 ;
+	Var_2 : BOOL := 0 ;
+	Var_3 : BOOL := 0 ;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bMinneKapasativ1 := diKapasativSensor1;
+bMinneKapasativ2 := diKapasativSensor2;
+bMinneKapasativ3 := diKapasativSensor3;
+bMinneKapasativ4 := diKapasativSensor4;
+
+Var_1 := diKapasativSensor1 OR diKapasativSensor2 ;
+Var_2 := diKapasativSensor1 AND diKapasativSensor2 ;
+Var_3 := diKapasativSensor1 XOR diKapasativSensor2 ;
+ 
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="10" Count="1" />
+      <LineId Id="33" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="22" Count="0" />
+      <LineId Id="24" Count="2" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
