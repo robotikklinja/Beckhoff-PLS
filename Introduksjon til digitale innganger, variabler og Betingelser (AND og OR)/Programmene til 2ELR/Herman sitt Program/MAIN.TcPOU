@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.9">
+  <POU Name="MAIN" Id="{71bc25b8-c09e-48ee-9e55-e3aa45d0be0d}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	diKapasativSensor1 AT %I* : BOOL ;
+	bMinneKapasativSensor1 : BOOL := 0 ;
+	diKapasativSensor2 AT %I* : BOOL ;
+	bMinneKapasativSensor2 : BOOL := 0 ;
+	
+	AndMinneKapasitet : BOOL := 0 ;
+	OrMinneKapasitet : BOOL := 0;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bMinneKapasativSensor1 := diKapasativSensor1 ;
+bMinneKapasativSensor2 := diKapasativSensor2 ;
+
+AndMinneKapasitet := diKapasativSensor1 AND diKapasativSensor2 ;
+OrMinneKapasitet := diKapasativSensor1 OR diKapasativSensor2 ;]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="2" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="16" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="18" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
