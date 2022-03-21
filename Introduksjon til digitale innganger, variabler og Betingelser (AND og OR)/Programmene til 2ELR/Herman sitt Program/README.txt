@@ -1,0 +1,1 @@
+Testinng av -or og -and funksjon i twincat.
